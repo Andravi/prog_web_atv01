@@ -11,6 +11,19 @@ public class Atividade01 {
         return resultado;
     }
 
+    public static float pedirNotasRetornarMedia(Scanner sc, int vezes) {
+        float media = 0;
+
+        for (int i = 0; i < vezes; i++) {
+            System.out.print("Digite a " + (i + 1) + "° nota: ");
+            media += sc.nextInt();
+        }
+
+        // Calculo da nota, fazer questão tbm para a atv8
+        media = media / vezes;
+        return media;
+    }
+
     // Sequencial
     public static void atv01() {
         System.out.println("Olá, Mundo!");
@@ -72,24 +85,78 @@ public class Atividade01 {
 
         System.out.println(" ");
         if (precoMaisBarato == ram) {
-            System.out.println("O produto mas barato é a memória RAM com o preço de R$" + numericoFormatado(precoMaisBarato));
+            System.out.println(
+                    "O produto mas barato é a memória RAM com o preço de R$" + numericoFormatado(precoMaisBarato));
         } else if (precoMaisBarato == rom) {
-            System.out.println("O produto mas barato é a memória ROM com o preço de R$" + numericoFormatado(precoMaisBarato));
+            System.out.println(
+                    "O produto mas barato é a memória ROM com o preço de R$" + numericoFormatado(precoMaisBarato));
         } else {
-            System.out.println("O produto mas barato é a memória cache com o preço de R$" + numericoFormatado(precoMaisBarato));
+            System.out.println(
+                    "O produto mas barato é a memória cache com o preço de R$" + numericoFormatado(precoMaisBarato));
         }
     }
 
-    public static void atv07() {
+    public static void atv07(Scanner sc, int vezes) {
+        float media = pedirNotasRetornarMedia(sc, vezes);
+        System.out.println("A média aritmética foi: " + numericoFormatado(media));
+        if (media >= 7) {
+            System.out.println("Aluno Aprovado!");
+        } else {
+            System.out.println("Aluno Reprovado!");
+        }
     }
 
-    public static void atv08() {
+    public static void atv08(Scanner sc) {
+        System.out.println("! Calculadora de média final! ");
+        float media = pedirNotasRetornarMedia(sc, 2);
+
+        System.out.println("Média: " + numericoFormatado(media));
+
+        if (media >= 7) {
+            System.out.println("Aluno aprovado!");
+
+        } else if (media >= 4) {
+            System.out.println("Aluno de AF!");
+            System.out.print("Informe a nota da AF:");
+            float AF = sc.nextFloat();
+
+            System.out.println("Média: " + numericoFormatado((media + AF) / 2));
+            if ((media + AF) / 2 >= 5) {
+                System.out.println("Aluno aprovado!");
+            } else {
+                System.out.println("Aluno Reprovado!!!");
+            }
+
+        } else {
+            System.out.println("Aluno Reprovado!!!");
+        }
     }
 
-    public static void atv09() {
+    public static void atv09(Scanner sc) {
+        System.out.println("Digite o primeiro número: ");
+        int maior = sc.nextInt();
+
+        System.out.println("Digite o segundo número: ");
+        int segundo = sc.nextInt();
+        if (segundo > maior)
+            maior = segundo;
+
+        System.out.println("Digite o segundo número: ");
+        int terceiro = sc.nextInt();
+        if (terceiro > maior)
+            maior = terceiro;
+        
+        System.out.println("O maior número foi o " + maior);
     }
 
-    public static void atv10() {
+    public static void atv10(Scanner sc) {
+        System.out.println("Digite um número");
+        int numero = sc.nextInt();
+        if (numero % 2 == 0 ) {
+            System.out.println(numero + " é Par");
+            return;
+        }
+        System.out.println(numero + " não é Par");
     }
 
     // Repetição
@@ -174,6 +241,23 @@ public class Atividade01 {
 
                 case 6:
                     atv06(sc);
+                    break;
+
+                case 7:
+                    int n = 4;
+                    atv07(sc, n);
+                    break;
+
+                case 8:
+                    atv08(sc);
+                    break;
+
+                case 9:
+                    atv09(sc);
+                    break;
+                
+                case 10:
+                    atv10(sc);
                     break;
 
                 default:
