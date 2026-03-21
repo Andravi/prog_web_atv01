@@ -145,14 +145,14 @@ public class Atividade01 {
         int terceiro = sc.nextInt();
         if (terceiro > maior)
             maior = terceiro;
-        
+
         System.out.println("O maior número foi o " + maior);
     }
 
     public static void atv10(Scanner sc) {
         System.out.println("Digite um número");
         int numero = sc.nextInt();
-        if (numero % 2 == 0 ) {
+        if (numero % 2 == 0) {
             System.out.println(numero + " é Par");
             return;
         }
@@ -160,26 +160,97 @@ public class Atividade01 {
     }
 
     // Repetição
-    public static void atv11() {
+    public static void atv11(Scanner sc) {
+        System.out.println("---------Tabuada---------");
+        System.out.print("Escolha um número entre 0 e 10: ");
+        int num = sc.nextInt();
+
+        if (num < 0 || num > 10) {
+            System.out.println("Opção inválida");
+            return;
+        }
+
+        System.out.println("=============================== ");
+        for (int i = 0; i <= 10; i++) {
+            System.out.println(num + " X " + i + " -> " + (num * i));
+        }
+        System.out.println("=============================== ");
+
     }
 
-    public static void atv12() {
+    public static void atv12(Scanner sc) {
+
+        boolean running = true;
+
+        while (running) {
+
+            System.out.print("Digite uma nota entre 0 e 10: ");
+            int num = sc.nextInt();
+
+            if (num < 0 || num > 10) {
+                System.out.println("Nota inválida");
+                continue;
+            }
+            System.out.println("Nota válida");
+            running = false;
+        }
+
     }
 
-    public static void atv13() {
+    public static void atv13(Scanner sc) {
+        int numCandidatos = 3;
+        int eleitoresNumero = 3;
+
+        int Cand1Votos = 0;
+        int Cand2Votos = 0;
+        int Cand3Votos = 0;
+
+        System.out.println("=======Candidatos=======");
+        for (int i = 0; i < numCandidatos; i++) {
+            int temp = i + 1;
+            System.out.println("Candidato " + temp + " -> " + temp);
+        }
+        System.out.println("========================");
+
+        while (true) {
+            for (int i = 0; i < eleitoresNumero; i++) {
+                System.out.print("Eleitor " + (i + 1) + ". Digite o número do candidato escolhido: ");
+                int voto = sc.nextInt();
+
+                if (voto == 1) {
+                    Cand1Votos++;
+                } else if (voto == 2) {
+                    Cand2Votos++;
+                } else if (voto == 3) {
+                    Cand3Votos++;
+                } else {
+                    i--;
+                    System.out.println("Cadidato inválido, escolha uma opção válida!");
+                }
+
+            }
+            break;
+        }
+        System.out.println("=========Votos==========");
+
+        System.out.println("Candidato 1 -> " + Cand1Votos + " Votos");
+        System.out.println("Candidato 2 -> " + Cand2Votos + " Votos");
+        System.out.println("Candidato 3 -> " + Cand3Votos + " Votos");
+
+        System.out.println("========================");
     }
 
-    public static void atv14() {
+    public static void atv14(Scanner sc) {
     }
 
-    public static void atv15() {
+    public static void atv15(Scanner sc) {
     }
 
-    public static void atv16() {
+    public static void atv16(Scanner sc) {
     }
 
     // Vetores
-    public static void atv17() {
+    public static void atv17(Scanner sc) {
     }
 
     public static void atv18() {
@@ -255,9 +326,21 @@ public class Atividade01 {
                 case 9:
                     atv09(sc);
                     break;
-                
+
                 case 10:
                     atv10(sc);
+                    break;
+
+                case 11:
+                    atv11(sc);
+                    break;
+
+                case 12:
+                    atv12(sc);
+                    break;
+
+                case 13:
+                    atv13(sc);
                     break;
 
                 default:
