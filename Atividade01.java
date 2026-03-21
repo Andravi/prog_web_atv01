@@ -52,8 +52,32 @@ public class Atividade01 {
     }
 
     // decição
-    public static void atv06() {
-        
+    public static void atv06(Scanner sc) {
+        // Pedir 3 valores dos produtos
+        // No processo pegar o que tiver o menor valor
+        // falar que a decisão de comprar é o menor.
+        // TODO: E se mais de um tiver o menor preço?
+        System.out.println("$ Lojinha de memórias $");
+        System.out.print("Diga o preço da memoria RAM: ");
+        float ram = sc.nextFloat();
+        float precoMaisBarato = ram; // Sei que parece estranho, mas econimiza uma linha
+        System.out.print("Diga o preço da memoria ROM: ");
+        float rom = sc.nextFloat();
+        if (rom < precoMaisBarato)
+            precoMaisBarato = rom;
+        System.out.print("Diga o preço da memoria Cache: ");
+        float cache = sc.nextFloat();
+        if (cache < precoMaisBarato)
+            precoMaisBarato = cache;
+
+        System.out.println(" ");
+        if (precoMaisBarato == ram) {
+            System.out.println("O produto mas barato é a memória RAM com o preço de R$" + numericoFormatado(precoMaisBarato));
+        } else if (precoMaisBarato == rom) {
+            System.out.println("O produto mas barato é a memória ROM com o preço de R$" + numericoFormatado(precoMaisBarato));
+        } else {
+            System.out.println("O produto mas barato é a memória cache com o preço de R$" + numericoFormatado(precoMaisBarato));
+        }
     }
 
     public static void atv07() {
@@ -146,6 +170,10 @@ public class Atividade01 {
 
                 case 5:
                     atv05(sc);
+                    break;
+
+                case 6:
+                    atv06(sc);
                     break;
 
                 default:
