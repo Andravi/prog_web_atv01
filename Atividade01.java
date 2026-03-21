@@ -24,6 +24,16 @@ public class Atividade01 {
         return media;
     }
 
+    public static boolean isPrimo(int numero) {
+        if (numero <= 1)
+            return false;
+        for (int i = 2; i <= Math.sqrt(numero); i++) {
+            if (numero % i == 0)
+                return false; // Divisor encontrado
+        }
+        return true;
+    }
+
     // Sequencial
     public static void atv01() {
         System.out.println("Olá, Mundo!");
@@ -241,12 +251,61 @@ public class Atividade01 {
     }
 
     public static void atv14(Scanner sc) {
+        System.out.println("====é ou não é primo====");
+        short repeticoes = 10;
+        for (int i = 0; i < repeticoes; i++) {
+            System.out.print("Numero " + (i + 1) + "° número: ");
+            int num = sc.nextInt();
+            if (num < 1) {
+                i--;
+                System.out.println("número inválido");
+                continue;
+            }
+            if (isPrimo(num)) {
+                System.out.println(num + " É primo!");
+            } else {
+                System.out.println(num + " Não é primo!");
+            }
+        }
     }
 
-    public static void atv15(Scanner sc) {
+    public static void atv15() {
+        System.out.println("10 primeiros números do fibonacci");
+        int num = 1;
+        int antNum = 0;
+        int temp = 0;
+        for (int i = 0; i < 10; i++) {
+            if (i == 0) {
+                System.out.print(antNum);
+                continue;
+            }
+
+            System.out.print('-');
+
+            temp = num;
+            num = num + antNum;
+            antNum = temp;
+            System.out.print(antNum);
+        }
+        System.out.println("");
+
     }
 
     public static void atv16(Scanner sc) {
+        
+
+        System.out.print("digite um número inteiro positivo: ");
+        int num = sc.nextInt();
+        int montante = 1;
+
+        for (int i = num; i > 0; i--) {
+            montante *= i;
+        }
+
+        System.out.println("O resultado do fatorial do número é: " + montante);
+
+        
+
     }
 
     // Vetores
@@ -341,6 +400,18 @@ public class Atividade01 {
 
                 case 13:
                     atv13(sc);
+                    break;
+
+                case 14:
+                    atv14(sc);
+                    break;
+
+                case 15:
+                    atv15();
+                    break;
+
+                case 16:
+                    atv16(sc);
                     break;
 
                 default:
