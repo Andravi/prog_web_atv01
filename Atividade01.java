@@ -1,6 +1,15 @@
 import java.util.Scanner; // 1. Importar a classe Scanner
+import java.text.DecimalFormat;
 
 public class Atividade01 {
+
+    // úteis
+    public static String numericoFormatado(Float numero) {
+        // return String.format("%.2f", numero);
+        DecimalFormat df = new DecimalFormat("0.00");
+        String resultado = df.format(numero);
+        return resultado;
+    }
 
     // Sequencial
     public static void atv01() {
@@ -12,7 +21,7 @@ public class Atividade01 {
         int numero = sc.nextInt();
         System.out.println("O número informado foi " + numero);
     }
-    
+
     public static void atv03(Scanner sc) {
         int numero1, numero2, numero3;
         System.out.print("Digite o número 1: ");
@@ -28,16 +37,23 @@ public class Atividade01 {
     }
 
     public static void atv04(Scanner sc) {
-        System.out.println("Digite o Raio do círculo: ");
-        float raio = sc.nextFloat();
-        System.out.println("A área desse circulo é " +  (Math.PI * raio * raio));
+        // Todo: E se colocar um . em vez de ,
+        System.out.print("Digite o valor em metros: ");
+        float metros = sc.nextFloat();
+        float centimetros = metros * 100;
+        System.out.println("Esse valor dá " + (String.valueOf(centimetros)).replace('.', ',') + " Centímetros!");
+        System.out.println("Esse valor dá " + numericoFormatado(centimetros) + " Centímetros!");
     }
 
-    public static void atv05() {
+    public static void atv05(Scanner sc) {
+        System.out.println("Digite o Raio do círculo: ");
+        float raio = sc.nextFloat();
+        System.out.println("A área desse circulo é " + (Math.PI * raio * raio));
     }
 
     // decição
     public static void atv06() {
+        
     }
 
     public static void atv07() {
@@ -100,6 +116,7 @@ public class Atividade01 {
 
         while (running) {
             System.out.println("=============================== ");
+            // System.out.println("(0 -> sair)");
             System.out.println(" ");
             System.out.print("Escolha a atividade, digite 1 até 23: ");
             int questao = sc.nextInt(); // Colocar try caght
@@ -122,9 +139,13 @@ public class Atividade01 {
                 case 3:
                     atv03(sc);
                     break;
-                
+
                 case 4:
                     atv04(sc);
+                    break;
+
+                case 5:
+                    atv05(sc);
                     break;
 
                 default:
