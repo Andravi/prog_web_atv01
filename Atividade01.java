@@ -44,6 +44,22 @@ public class Atividade01 {
         return res;
     }
 
+    public static boolean isPar(int numero) {
+        if (numero % 2 == 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public static void mostrarArray(int[] array) {
+        System.out.print("| - ");
+        for (int i : array) {
+            System.out.print(i + " - ");
+        }
+        System.out.print("|");
+        System.out.println("");
+    }
+
     // Sequencial
     public static void atv01() {
         System.out.println("Olá, Mundo!");
@@ -366,15 +382,140 @@ public class Atividade01 {
     }
 
     public static void atv20(Scanner sc) {
+        int[] array = new int[20];
+
+        int numPar = 0;
+        int numImpar = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            System.out.print("Digite um número: ");
+            array[i] = sc.nextInt();
+            if (isPar(array[i])) {
+                numPar++;
+            } else {
+                numImpar++;
+            }
+
+            System.out.println("");
+        }
+
+        int[] par = new int[numPar];
+        int[] impar = new int[numImpar];
+
+        int parCount = 0;
+        int imparCount = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            if (isPar(array[i])) {
+                par[parCount] = array[i];
+                parCount++;
+            } else {
+                impar[imparCount] = array[i];
+                imparCount++;
+            }
+        }
+        System.out.println("Vetor completo:");
+        mostrarArray(array);
+        System.out.println("Vetor de Pares completo:");
+        mostrarArray(par);
+        System.out.println("Vetor de Impares completo:");
+        mostrarArray(impar);
+
     }
 
     public static void atv21(Scanner sc) {
+
+        String[] strs = new String[2];
+
+        System.out.println("Digite a primeira String: ");
+        strs[0] = sc.next();
+
+        System.out.println("Digite a segunda String: ");
+        strs[1] = sc.next();
+
+        System.out.println("A primeira string foi |" + strs[0] + "| com o comprimento de " + strs[0].length());
+        System.out.println("A segunda string foi |" + strs[1] + "| com o comprimento de " + strs[1].length());
+
+        System.out.println("============================");
+        System.out.print("As String tem os comprimentos ");
+        if (strs[0].length() == strs[1].length()) {
+            System.out.println("Iguais");
+        } else {
+            System.out.println("Diferentes");
+        }
+        System.out.println("============================");
+        System.out.print("As String tem o conteúdo ");
+        if (strs[0].equals(strs[1])) {
+            System.out.println("Igual");
+        } else {
+            System.out.println("Diferente");
+        }
     }
 
     public static void atv22(Scanner sc) {
+
+        System.out.print("Digite um número inteiro a ser invertido:");
+        String num = sc.next();
+        String numInvertido = "";
+
+        for (int i = num.length() - 1; i >= 0; i--) {
+            numInvertido += num.toCharArray()[i];
+        }
+
+        System.out.println("Inversão:");
+        System.out.println(num + " <-> " + numInvertido);
+
     }
 
     public static void atv23(Scanner sc) {
+        System.out.println("+====Super Calculadora===+");
+        System.out.print("Digite o primeiro número: ");
+        float numero1 = sc.nextFloat();
+        System.out.print("Digite o segundo número: ");
+        float numero2 = sc.nextFloat();
+
+        boolean running = true;
+        String res = "";
+        while (running) {
+
+            System.out.println("=====OPÇÕES DE OPERAÇÕES=====");
+            System.out.println("1 -> Somar");
+            System.out.println("2 -> Subtrair");
+            System.out.println("3 -> Multiplicar");
+            System.out.println("4 -> Dividir");
+
+            System.out.println("Escolha a operação:");
+            String op = sc.next();
+
+
+            switch (op) {
+                case "1":
+                    res = "A Soma de " + numero1 + " + " + numero2 + " = " + (numero1 + numero2);
+                    running = false;
+                    break;
+
+                case "2":
+                    res = "A Subtração de " + numero1 + " - " + numero2 + " = " + (numero1 - numero2);
+                    running = false;
+                    break;
+
+                case "3":
+                    res = "A Multiplicação de " + numero1 + " * " + numero2 + " = " + (numero1 * numero2);
+                    running = false;
+                    break;
+
+                case "4":
+                    res = "A Divisão de " + numero1 + " / " + numero2 + " = " + (numero1 / numero2);
+                    running = false;
+                    break;
+
+                default:
+                    System.out.println("Opção inválida");
+                    break;
+            }
+        
+        }
+        System.out.println(res.replace('.', ','));
     }
 
     public static void main(String[] args) {
