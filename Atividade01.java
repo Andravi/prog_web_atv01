@@ -34,6 +34,16 @@ public class Atividade01 {
         return true;
     }
 
+    public static int multiplicarVetor(int[] arr) {
+        int res = 1;
+
+        for (int i : arr) {
+            res *= i;
+        }
+
+        return res;
+    }
+
     // Sequencial
     public static void atv01() {
         System.out.println("Olá, Mundo!");
@@ -292,7 +302,6 @@ public class Atividade01 {
     }
 
     public static void atv16(Scanner sc) {
-        
 
         System.out.print("digite um número inteiro positivo: ");
         int num = sc.nextInt();
@@ -304,30 +313,68 @@ public class Atividade01 {
 
         System.out.println("O resultado do fatorial do número é: " + montante);
 
-        
-
     }
 
     // Vetores
     public static void atv17(Scanner sc) {
+        int[] array = new int[5];
+        for (int i = 0; i < array.length; i++) {
+            System.out.print("Digite um número: ");
+            array[i] = sc.nextInt();
+            System.out.println("");
+        }
+
+        System.out.println("os números do Vetor são: ");
+        for (int i : array) {
+            System.out.print(i + " - ");
+        }
+        System.out.println("");
     }
 
-    public static void atv18() {
+    public static void atv18(Scanner sc) {
+        float[] array = new float[10];
+        for (int i = 0; i < array.length; i++) {
+            System.out.print((i + 1) + "°. Digite um número real: ");
+            array[i] = sc.nextFloat();
+            System.out.println("");
+        }
+
+        System.out.println("os números do Vetor são: ");
+        for (int i = array.length; i > 0; i--) {
+            System.out.print(array[i - 1] + " - ");
+        }
+        System.out.println("");
     }
 
-    public static void atv19() {
+    public static void atv19(Scanner sc) {
+        int[] array = new int[5];
+        for (int i = 0; i < array.length; i++) {
+            System.out.print("Digite um número: ");
+            array[i] = sc.nextInt();
+            System.out.println("");
+        }
+
+        System.out.println("A multiplicação entre os 5 números é: " + multiplicarVetor(array));
+
+        System.out.println("os números do Vetor são: ");
+        System.out.print("| - ");
+        for (int i : array) {
+            System.out.print(i + " - ");
+        }
+        System.out.print("|");
+        System.out.println("");
     }
 
-    public static void atv20() {
+    public static void atv20(Scanner sc) {
     }
 
-    public static void atv21() {
+    public static void atv21(Scanner sc) {
     }
 
-    public static void atv22() {
+    public static void atv22(Scanner sc) {
     }
 
-    public static void atv23() {
+    public static void atv23(Scanner sc) {
     }
 
     public static void main(String[] args) {
@@ -412,6 +459,34 @@ public class Atividade01 {
 
                 case 16:
                     atv16(sc);
+                    break;
+
+                case 17:
+                    atv17(sc);
+                    break;
+
+                case 18:
+                    atv18(sc);
+                    break;
+
+                case 19:
+                    atv19(sc);
+                    break;
+
+                case 20:
+                    atv20(sc);
+                    break;
+
+                case 21:
+                    atv21(sc);
+                    break;
+
+                case 22:
+                    atv22(sc);
+                    break;
+
+                case 23:
+                    atv23(sc);
                     break;
 
                 default:
