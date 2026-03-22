@@ -1,4 +1,4 @@
-import java.util.Scanner; // 1. Importar a classe Scanner
+import java.util.Scanner;
 import java.text.DecimalFormat;
 
 public class Atividade01 {
@@ -19,7 +19,6 @@ public class Atividade01 {
             media += sc.nextInt();
         }
 
-        // Calculo da nota, fazer questão tbm para a atv8
         media = media / vezes;
         return media;
     }
@@ -29,7 +28,7 @@ public class Atividade01 {
             return false;
         for (int i = 2; i <= Math.sqrt(numero); i++) {
             if (numero % i == 0)
-                return false; // Divisor encontrado
+                return false; 
         }
         return true;
     }
